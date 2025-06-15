@@ -1,5 +1,20 @@
 return {
-  "rktjmp/lush.nvim",
-  -- if you wish to use your own colorscheme:
-  -- { dir = '/absolute/path/to/colorscheme', lazy = true },
+  -- Load lush.nvim first
+  {
+    "rktjmp/lush.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  
+  -- Load your custom colorscheme
+  {
+    dir = "/Users/eshinn/Documents/Projects/color-schemes/intrepid-raven",
+    name = "intrepid-raven",
+    lazy = false,
+    priority = 1000,
+    dependencies = { "rktjmp/lush.nvim" },
+    config = function()
+      vim.cmd.colorscheme("intrepid-raven")
+    end,
+  },
 }
